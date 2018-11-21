@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import re
 import math
+import random
 DATASEGMENT=50
 STACKSEGMENT=100
 isa={}
@@ -183,7 +184,8 @@ DATA_RADIX=HEX;
 CONTENT BEGIN
 """)
     for i in range(len(codelist)):
-        fout.write("%s:%x;\n"%(i,getcode(codelist[i])))
+        codelist[i]=str(random.randint(0,100))
+#        fout.write("%s:%x;\n"%(i,getcode(codelist[i])))
     fout.write("[%d..255]:0;\n"%len(codelist))
     fout.write("END;\n")
     fout.close()
